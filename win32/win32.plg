@@ -1,0 +1,57 @@
+<html>
+<body>
+<pre>
+<h1>ﾋﾞﾙﾄﾞのﾛｸﾞ</h1>
+<h3>
+--------------------構成: win32 - Win32 Debug--------------------
+</h3>
+<h3>ｺﾏﾝﾄﾞ ﾗｲﾝ</h3>
+一時ﾌｧｲﾙ "C:\TEMP\RSP5E.tmp" を作成し、次の内容を記録します
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/win32.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\usr\noda\Toshiba\GIGABASE\GigaBase1.1ver0914\xml-parser0821\saxparser.c"
+"C:\usr\noda\Toshiba\GIGABASE\GigaBase1.1ver0914\xml-parser0821\symtab.c"
+]
+Creating command line "cl.exe @C:\TEMP\RSP5E.tmp" 
+一時ﾌｧｲﾙ "C:\TEMP\RSP5F.tmp" を作成し、次の内容を記録します
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/sax_win32.pdb" /debug /machine:I386 /out:"../sax_win32.exe" /pdbtype:sept 
+".\Debug\attrib.obj"
+".\Debug\dfa.obj"
+".\Debug\dtdparser.obj"
+".\Debug\intset.obj"
+".\Debug\main.obj"
+".\Debug\mem.obj"
+".\Debug\saxhandler.obj"
+".\Debug\saxparser.obj"
+".\Debug\setset.obj"
+".\Debug\stack.obj"
+".\Debug\strtree.obj"
+".\Debug\symtab.obj"
+".\Debug\xml.lex.obj"
+".\Debug\xml.tab.obj"
+]
+ｺﾏﾝﾄﾞ ﾗｲﾝ "link.exe @C:\TEMP\RSP5F.tmp" の作成中
+<h3>ｱｳﾄﾌﾟｯﾄ ｳｨﾝﾄﾞｳ</h3>
+ｺﾝﾊﾟｲﾙ中...
+saxparser.c
+C:\usr\noda\Toshiba\GIGABASE\GigaBase1.1ver0914\xml-parser0821\saxparser.c(56) : warning C4013: 関数 'exit' は定義されていません。int 型の値を返す外部関数と見なします。
+C:\usr\noda\Toshiba\GIGABASE\GigaBase1.1ver0914\xml-parser0821\saxparser.c(97) : warning C4101: 'i' : ﾛｰｶﾙ変数は 1 度も使われません。
+C:\usr\noda\Toshiba\GIGABASE\GigaBase1.1ver0914\xml-parser0821\saxparser.c(97) : warning C4101: 'j' : ﾛｰｶﾙ変数は 1 度も使われません。
+C:\usr\noda\Toshiba\GIGABASE\GigaBase1.1ver0914\xml-parser0821\saxparser.c(193) : warning C4013: 関数 'isspace' は定義されていません。int 型の値を返す外部関数と見なします。
+C:\usr\noda\Toshiba\GIGABASE\GigaBase1.1ver0914\xml-parser0821\saxparser.c(245) : warning C4013: 関数 'imem' は定義されていません。int 型の値を返す外部関数と見なします。
+C:\usr\noda\Toshiba\GIGABASE\GigaBase1.1ver0914\xml-parser0821\saxparser.c(256) : warning C4013: 関数 'parseDTD' は定義されていません。int 型の値を返す外部関数と見なします。
+C:\usr\noda\Toshiba\GIGABASE\GigaBase1.1ver0914\xml-parser0821\saxparser.c(259) : warning C4013: 関数 'parseXml' は定義されていません。int 型の値を返す外部関数と見なします。
+C:\usr\noda\Toshiba\GIGABASE\GigaBase1.1ver0914\xml-parser0821\saxparser.c(273) : warning C4013: 関数 'pmem' は定義されていません。int 型の値を返す外部関数と見なします。
+symtab.c
+C:\usr\noda\Toshiba\GIGABASE\GigaBase1.1ver0914\xml-parser0821\symtab.c(32) : warning C4013: 関数 '_fatal' は定義されていません。int 型の値を返す外部関数と見なします。
+C:\usr\noda\Toshiba\GIGABASE\GigaBase1.1ver0914\xml-parser0821\symtab.c(33) : warning C4715: 'getTree' : 値を返さないｺﾝﾄﾛｰﾙ ﾊﾟｽがあります
+ﾘﾝｸ中...
+
+
+
+<h3>結果</h3>
+sax_win32.exe - ｴﾗｰ 0、警告 10
+</pre>
+</body>
+</html>

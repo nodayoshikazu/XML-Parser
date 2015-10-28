@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="shift_jis" standalone="yes"?>
+<!DOCTYPE test SYSTEM "foo">
+
+<test>
+  <ooo>
+void initDfa ()
+{
+  n_leaves = 0;
+  leaves[n_leaves++] = lastNode;
+  leaves[n_leaves++] = emptyNode;
+  numberOfLeaves = STARTSTATE;
+}
+  </ooo>
+</test>

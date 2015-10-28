@@ -1,0 +1,127 @@
+<html>
+<body>
+<pre>
+<h1>ﾋﾞﾙﾄﾞのﾛｸﾞ</h1>
+<h3>
+--------------------構成: w32dll - Win32 Release--------------------
+</h3>
+<h3>ｺﾏﾝﾄﾞ ﾗｲﾝ</h3>
+一時ﾌｧｲﾙ "C:\TEMP\RSP34.tmp" を作成し、次の内容を記録します
+[
+/nologo /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "W32DLL_EXPORTS" /Fp"Release/w32dll.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\attrib.c"
+"C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\dfa.c"
+"C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\dtdparser.c"
+"C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\intset.c"
+"C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\mem.c"
+"C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\saxhandler.c"
+"C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\saxparser.c"
+"C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\setset.c"
+"C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\stack.c"
+"C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\strtree.c"
+"C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\symtab.c"
+"C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\xml.lex.c"
+"C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\xml.tab.c"
+]
+Creating command line "cl.exe @C:\TEMP\RSP34.tmp" 
+一時ﾌｧｲﾙ "C:\TEMP\RSP35.tmp" を作成し、次の内容を記録します
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /dll /incremental:no /pdb:"Release/xmlp_w32.pdb" /machine:I386 /out:"..\..\bin\xmlp_w32.dll" /implib:"Release/xmlp_w32.lib" 
+".\Release\attrib.obj"
+".\Release\dfa.obj"
+".\Release\dtdparser.obj"
+".\Release\intset.obj"
+".\Release\mem.obj"
+".\Release\saxhandler.obj"
+".\Release\saxparser.obj"
+".\Release\setset.obj"
+".\Release\stack.obj"
+".\Release\strtree.obj"
+".\Release\symtab.obj"
+".\Release\xml.lex.obj"
+".\Release\xml.tab.obj"
+]
+ｺﾏﾝﾄﾞ ﾗｲﾝ "link.exe @C:\TEMP\RSP35.tmp" の作成中
+<h3>ｱｳﾄﾌﾟｯﾄ ｳｨﾝﾄﾞｳ</h3>
+ｺﾝﾊﾟｲﾙ中...
+attrib.c
+dfa.c
+dtdparser.c
+C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\dtdparser.c(132) : warning C4013: 関数 'parseXml' は定義されていません。int 型の値を返す外部関数と見なします。
+C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\dtdparser.c(136) : warning C4013: 関数 'warn3' は定義されていません。int 型の値を返す外部関数と見なします。
+intset.c
+C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\intset.c(27) : warning C4013: 関数 '_fatal' は定義されていません。int 型の値を返す外部関数と見なします。
+C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\intset.c(70) : warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+mem.c
+saxhandler.c
+C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\saxhandler.c(77) : warning C4013: 関数 'printf' は定義されていません。int 型の値を返す外部関数と見なします。
+C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\saxhandler.c(86) : warning C4113: 'void (__cdecl *)()' はﾊﾟﾗﾒ-ﾀ ﾘｽﾄが 'void (__cdecl *)(char *,int ,int )' と異なります。
+C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\saxhandler.c(87) : warning C4113: 'void (__cdecl *)()' はﾊﾟﾗﾒ-ﾀ ﾘｽﾄが 'void (__cdecl *)(void )' と異なります。
+C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\saxhandler.c(88) : warning C4113: 'void (__cdecl *)()' はﾊﾟﾗﾒ-ﾀ ﾘｽﾄが 'void (__cdecl *)(void )' と異なります。
+C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\saxhandler.c(89) : warning C4113: 'void (__cdecl *)()' はﾊﾟﾗﾒ-ﾀ ﾘｽﾄが 'void (__cdecl *)(char *,char *,char *)' と異なります。
+C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\saxhandler.c(90) : warning C4113: 'void (__cdecl *)()' はﾊﾟﾗﾒ-ﾀ ﾘｽﾄが 'void (__cdecl *)(char *)' と異なります。
+C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\saxhandler.c(91) : warning C4113: 'void (__cdecl *)()' はﾊﾟﾗﾒ-ﾀ ﾘｽﾄが 'void (__cdecl *)(char *)' と異なります。
+C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\saxhandler.c(92) : warning C4113: 'void (__cdecl *)()' はﾊﾟﾗﾒ-ﾀ ﾘｽﾄが 'void (__cdecl *)(char *,char *)' と異なります。
+C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\saxhandler.c(93) : warning C4113: 'void (__cdecl *)()' はﾊﾟﾗﾒ-ﾀ ﾘｽﾄが 'void (__cdecl *)(char *,char *,char *,struct _StrTreeNode *)' と異なります。
+C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\saxhandler.c(94) : warning C4113: 'void (__cdecl *)()' はﾊﾟﾗﾒ-ﾀ ﾘｽﾄが 'void (__cdecl *)(char *)' と異なります。
+C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\saxhandler.c(95) : warning C4113: 'void (__cdecl *)()' はﾊﾟﾗﾒ-ﾀ ﾘｽﾄが 'void (__cdecl *)(char *,char *)' と異なります。
+C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\saxhandler.c(96) : warning C4113: 'void (__cdecl *)()' はﾊﾟﾗﾒ-ﾀ ﾘｽﾄが 'void (__cdecl *)(char *)' と異なります。
+saxparser.c
+C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\saxparser.c(58) : warning C4013: 関数 'exit' は定義されていません。int 型の値を返す外部関数と見なします。
+C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\saxparser.c(99) : warning C4101: 'i' : ﾛｰｶﾙ変数は 1 度も使われません。
+C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\saxparser.c(99) : warning C4101: 'j' : ﾛｰｶﾙ変数は 1 度も使われません。
+C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\saxparser.c(195) : warning C4013: 関数 'isspace' は定義されていません。int 型の値を返す外部関数と見なします。
+C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\saxparser.c(247) : warning C4013: 関数 'imem' は定義されていません。int 型の値を返す外部関数と見なします。
+C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\saxparser.c(257) : warning C4013: 関数 'parseDTD' は定義されていません。int 型の値を返す外部関数と見なします。
+C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\saxparser.c(260) : warning C4013: 関数 'parseXml' は定義されていません。int 型の値を返す外部関数と見なします。
+C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\saxparser.c(273) : warning C4013: 関数 'pmem' は定義されていません。int 型の値を返す外部関数と見なします。
+setset.c
+C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\setset.c(77) : warning C4013: 関数 '_fatal' は定義されていません。int 型の値を返す外部関数と見なします。
+stack.c
+C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\stack.c(22) : warning C4013: 関数 'getmem' は定義されていません。int 型の値を返す外部関数と見なします。
+C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\stack.c(33) : warning C4013: 関数 'memfree' は定義されていません。int 型の値を返す外部関数と見なします。
+C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\stack.c(43) : warning C4013: 関数 'warn' は定義されていません。int 型の値を返す外部関数と見なします。
+strtree.c
+symtab.c
+xml.lex.c
+C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\symtab.c(33) : warning C4715: 'getTree' : 値を返さないｺﾝﾄﾛｰﾙ ﾊﾟｽがあります
+C:\usr\noda\Toshiba\GIGABASE\Gigabase1.1ver1001\xml-parser\symtab.c(54) : warning C4715: 'newSymtab' : 値を返さないｺﾝﾄﾛｰﾙ ﾊﾟｽがあります
+xml.l(49) : warning C4067: ﾌﾟﾗｸﾞﾏ ﾃﾞｨﾚｸﾃｨﾌﾞの後に余分な文字がありました - 改行が必要です
+xml.l(124) : warning C4013: 関数 'xxparse' は定義されていません。int 型の値を返す外部関数と見なします。
+xml.l(163) : warning C4013: 関数 'xxunput' は定義されていません。int 型の値を返す外部関数と見なします。
+xml.l(224) : warning C4013: 関数 'xxlook' は定義されていません。int 型の値を返す外部関数と見なします。
+xml.l(227) : warning C4013: 関数 'xxwrap' は定義されていません。int 型の値を返す外部関数と見なします。
+xml.l(269) : warning C4013: 関数 'initDfa' は定義されていません。int 型の値を返す外部関数と見なします。
+xml.l(225) : warning C4102: 'xxfussy' : ﾗﾍﾞﾙは 1 度も参照されません。
+xml.l(6111) : warning C4013: 関数 'xxwinput' は定義されていません。int 型の値を返す外部関数と見なします。
+xml.l(6160) : warning C4013: 関数 'xxcgid' は定義されていません。int 型の値を返す外部関数と見なします。
+xml.l(6175) : warning C4013: 関数 'xxwunput' は定義されていません。int 型の値を返す外部関数と見なします。
+xml.l(6251) : warning C4013: 関数 'xxback' は定義されていません。int 型の値を返す外部関数と見なします。
+xml.l(6285) : warning C4013: 関数 'xxwoutput' は定義されていません。int 型の値を返す外部関数と見なします。
+xml.tab.c
+xml.l(6349) : warning C4716: 'xxwoutput' : 値を返さなければいけません
+xml.l(6361) : warning C4716: 'xxwunput' : 値を返さなければいけません
+xml.l(6444) : warning C4716: 'xxunput' : 値を返さなければいけません
+/usr/ccs/bin/yaccpar(274) : warning C4013: 関数 'xxlex' は定義されていません。int 型の値を返す外部関数と見なします。
+xml.y(321) : warning C4013: 関数 'begin_doubleq' は定義されていません。int 型の値を返す外部関数と見なします。
+xml.y(322) : warning C4013: 関数 'begin_singleq' は定義されていません。int 型の値を返す外部関数と見なします。
+xml.y(369) : warning C4013: 関数 'lookupData' は定義されていません。int 型の値を返す外部関数と見なします。
+xml.y(370) : warning C4013: 関数 'initStateWorkOfElement' は定義されていません。int 型の値を返す外部関数と見なします。
+xml.y(376) : warning C4013: 関数 'checkAttributesForRequired' は定義されていません。int 型の値を返す外部関数と見なします。
+xml.y(480) : warning C4013: 関数 'begin_chardata' は定義されていません。int 型の値を返す外部関数と見なします。
+xml.y(628) : warning C4013: 関数 'insertData' は定義されていません。int 型の値を返す外部関数と見なします。
+xml.y(807) : warning C4013: 関数 'saveSymbolAndData' は定義されていません。int 型の値を返す外部関数と見なします。
+xml.y(876) : warning C4013: 関数 'saveEntity' は定義されていません。int 型の値を返す外部関数と見なします。
+xml.y(993) : warning C4013: 関数 'begin_cdata' は定義されていません。int 型の値を返す外部関数と見なします。
+/usr/ccs/bin/yaccpar(374) : warning C4102: 'xxerrlab' : ﾗﾍﾞﾙは 1 度も参照されません。
+/usr/ccs/bin/yaccpar(164) : warning C4102: 'xxnewstate' : ﾗﾍﾞﾙは 1 度も参照されません。
+ﾘﾝｸ中...
+   ﾗｲﾌﾞﾗﾘ Release/xmlp_w32.lib とｵﾌﾞｼﾞｪｸﾄ Release/xmlp_w32.exp を作成中
+
+
+
+<h3>結果</h3>
+xmlp_w32.dll - ｴﾗｰ 0、警告 58
+</pre>
+</body>
+</html>

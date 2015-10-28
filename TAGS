@@ -1,0 +1,708 @@
+
+attrib.c,833
+static void addNameToFixed 23,247
+static void releaseNinks 41,644
+Fixed* newFixedStruct 57,931
+void releaseFixedStruct 70,1174
+Attribute* newAttributeStruct 80,1318
+Attribute* setAttributeType 95,1671
+void releaseAttribute 105,1832
+Attribute* addEnumNameToAttribute 123,2159
+Attribute* setDefaultToAttribute 135,2408
+Element* newElementStruct 145,2568
+void releaseElementStruct 161,2895
+Element* setDfaToElement 172,3069
+Element* setTypeToElement 190,3467
+Element* addAttributeToElement 200,3630
+Attribute* findAttributeFromElement 217,4024
+int checkAttributesForRequired 240,4570
+int checkAttributesForFixed 269,5368
+int getNextStateOnSymbol 319,6525
+void initStateWorkOfElement 350,7246
+void printFixed 366,7617
+void printAttribute 380,7833
+void printElement 392,8126
+void printAllElementAttributes 406,8493
+
+attrib.h,1036
+#define ATTRIB_H11,76
+#define AT_CDATA 17,140
+#define AT_ID 18,163
+#define AT_IDREF 19,186
+#define AT_IDREFS 20,209
+#define AT_ENTITY 21,232
+#define AT_ENTITIES 22,255
+#define AT_NMTOKEN 23,278
+#define AT_NMTOKENS 24,301
+#define AT_NOTATION 25,324
+#define AT_ENUM 26,347
+#define AX_REQUIRED 29,407
+#define AX_IMPLIED 30,435
+#define AX_FIXED 31,463
+#define AX_DEFAULT 32,491
+#define EL_PCDATA 35,541
+#define EL_EMPTY 36,595
+#define EL_ANY 37,654
+#define EL_DFA 38,742
+typedef struct _Nink _Nink44,847
+} Nink;Nink47,911
+#define NameOfNink(NameOfNink49,922
+#define NextOfNink(NextOfNink50,957
+} Fixed;Fixed58,1169
+typedef struct _Attribute _Attribute63,1202
+} Attribute;Attribute69,1514
+#define TypeOfAttribute(TypeOfAttribute71,1530
+#define ATTypeOfAttribute(ATTypeOfAttribute72,1572
+#define NameOfAttribute(NameOfAttribute73,1621
+#define FixedOfAttribute(FixedOfAttribute74,1663
+} Element;Element87,2100
+#define NameOfElement(NameOfElement90,2116
+#define TypeOfElement(TypeOfElement91,2155
+
+debug.h,339
+#define DEBUG_H9,67
+#define DBGWAIT(DBGWAIT13,111
+#define DBGWAIT(DBGWAIT15,145
+#define DBGIN(DBGIN19,193
+#define DBGOUT(DBGOUT20,215
+#define ENTER(ENTER21,240
+#define LEAVE(LEAVE22,298
+#define DBGIN(DBGIN25,364
+#define DBGOUT(DBGOUT26,391
+#define ENTER(ENTER27,415
+#define LEAVE(LEAVE28,442
+static void __BUG 35,527
+
+defaults.h,393
+#define DEFAULTS_H12,86
+#define FILE_URI_HEADER1 15,110
+#define FILE_URI_HEADER2 16,147
+#define FILE_URI_HEADERL 17,184
+#define STACKSIZE 21,258
+#define URI_LENGTH 25,307
+#define MAXSETS 28,373
+#define MAX_BITS 31,428
+#define MAX_LEAVES 34,473
+#define MAX_GOTOS 35,502
+#define MAXNAMELEN 38,571
+#define MAX_REFERENCE_LENGTH 41,659
+#define ACCEPT 44,758
+#define NOT_ACCEPT 45,784
+
+dfa.c,1115
+#define CHKMEM 17,177
+static RESyntaxTreeNode _lastNode 23,275
+static RESyntaxTreeNode _emptyNode 33,505
+REN emptyNode 42,707
+REN lastNode 43,762
+static int memcount 46,824
+static int rencount 47,850
+static int numberOfLeaves;50,886
+static REN  leaves[52,916
+static int  n_leaves;53,949
+static Goto gotobuf[54,972
+static int  nGotos;55,1005
+static REN newNode 62,1070
+void initDfa 74,1275
+REN releaseSyntaxTree 86,1458
+REN makeLeaf 105,1825
+REN makeNode 126,2168
+static REN copyNode 144,2432
+REN makeCopyNode 161,2707
+static REN addLastSymbol 179,3017
+static int nullable 188,3141
+static void firstpos 214,3637
+static void lastpos 245,4380
+static void setFirstposAndLastpos 276,5149
+static void setNullable 299,5657
+static REN searchNodeForState 312,5850
+static void findFollowpos 330,6183
+static void setFollowpos 363,7008
+static Dfa* newDfaStruct 377,7230
+static addGoto 399,7771
+static Dfa* create_dfa 463,9633
+static char* toOpString 545,11655
+static rprint 558,11879
+static void testview 578,12378
+Dfa* createDFA 589,12508
+void releaseDFA 613,12973
+void printDfa 624,13094
+
+dfa.h,495
+#define DFA_H10,65
+#define TRUE 21,187
+#define FALSE 22,204
+#define  RE_EMPTY 24,223
+#define  RE_LEAF 25,247
+#define  RE_CAT 26,271
+#define  RE_STAR 27,296
+#define  RE_OR 28,320
+#define  ACCEPT_STATE 30,346
+#define  EMPTY_STATE 31,371
+#define  STARTSTATE 32,396
+typedef struct reTreeNode reTreeNode35,425
+} RESyntaxTreeNode, *REN;REN45,874
+extern REN emptyNode;54,1035
+typedef struct _Goto _Goto57,1062
+} Goto;Goto62,1190
+typedef struct _Dfa _Dfa64,1201
+} Dfa;Dfa70,1327
+
+dtdparser.c,362
+# define MAXPATHLEN 22,349
+int          dtd_parsing_result 26,394
+static char* SYSTEM 28,432
+static int   SYSTEM_LENGTH 29,472
+static char* DOCTYPE 30,505
+static int   DOCTYPE_LENGTH 31,546
+static int   lines 32,579
+static int lookup_string 39,663
+static char* convert_file_uri_to_system_path 71,1132
+char* lookupDTDPath 99,1703
+int parseDTD 128,2283
+
+intset.c,395
+static bits8 masks[15,140
+Intsetp NewIntset 22,246
+Intsetp NewIntsetAt 39,577
+int  ISisEmpty 50,766
+void ISrelease 52,828
+void ISreleaseAt 54,879
+void ISreset 56,937
+void ISaddItem 66,1082
+void ISaddAllItems 76,1278
+void ISremoveItems 90,1557
+int ISisInSet 98,1693
+void ISiterate 106,1832
+int ISnext 114,1900
+int ISisEqual 126,2141
+Intsetp ISclone 138,2345
+void ISprint 147,2466
+
+intset.h,190
+#define INTSET_H9,65
+typedef unsigned char bits8;bits815,133
+#define TRUE 18,176
+#define FALSE 19,193
+#define NULL 23,231
+#define BITSBYTES 31,348
+} _Intset, *Intsetp Intsetp39,549
+
+main.c,323
+void startDocument 15,114
+void endDocument 20,204
+void printValue 25,291
+void startElement 33,497
+void characters 40,747
+void endElement 47,918
+void startPrefixMapping 53,1109
+void endPrefixMapping 61,1327
+void procInst 67,1480
+void fatalerror 72,1577
+void error 77,1652
+void warning 82,1716
+void main 87,1784
+
+mem.c,232
+static int mcount 18,175
+static int verb 19,199
+void* MALLOC 25,238
+void FREE 42,540
+void imem 55,814
+void pmem 56,844
+void pmem 59,924
+void imem 60,940
+void* getmem 64,968
+char* stringclone 69,1035
+void  memfree 79,1188
+
+mem.h,63
+#define MEM_H9,64
+#define MALLOC 19,185
+#define FREE 20,208
+
+saxhandler.c,167
+#define SAXHANDLER_C 9,57
+#define EXPORT 14,124
+#define EXPORT 16,169
+static void noop(76,1295
+EXPORT void init_parse_xml 84,1376
+EXPORT char* getValue 103,1760
+
+saxhandler.h,146
+#define SAXHANDLER_H10,79
+typedef StrTreeNode Attributes;Attributes16,155
+#define EXTDLL 21,219
+#define EXTDLL 23,280
+#define EXTDLL 26,345
+
+saxparser.c,625
+#define SAXPARSER_C 9,60
+#define EXPORT 21,292
+#define IMPORT 22,330
+#define EXPORT 24,375
+#define IMPORT 25,396
+  extern int yydebug;32,451
+int namespaceEnabled 38,527
+int nameTab;43,577
+int entityTab;44,614
+int attribTab;45,653
+static char* predefEntities[47,725
+static char* predefEntValues[48,795
+void _fatal 55,913
+void _warning 64,1033
+static void initEntityTab 74,1140
+void saveEntity 86,1406
+char* resolveReferences 96,1609
+char* saveName 135,2409
+char* getNamespacePrefix 148,2621
+char* getElementName 169,3032
+char* getPITarget 188,3382
+char* getPIData 204,3638
+EXPORT int parse_xml 236,4157
+
+saxparser.h,146
+#define SAXPARSER_H9,74
+extern int namespaceEnabled;16,167
+extern int nameTab;28,471
+extern int entityTab;29,514
+extern int attribTab;30,559
+
+setset.c,228
+Setsetp NewSetSet 20,180
+void SSrelease 31,312
+int SSsearch 45,543
+int SSadd 60,792
+Intsetp SSget 75,1026
+int      SSgetNumSets 85,1188
+Intsetp* SSgetSets 92,1270
+int SSgetSymbol 94,1326
+int SSaddSetIfNotExist 105,1573
+
+setset.h,98
+#define SETSET_H11,83
+typedef struct _Setset _Setset21,207
+} _Setset, *Setsetp;Setsetp24,281
+
+stack.c,110
+XStack* newXStack 20,148
+void releaseXStack 31,291
+void xpush 40,373
+void* xpop 52,551
+void* xtop 65,735
+
+stack.h,46
+#define STACK_H12,80
+} XStack;XStack22,215
+
+strtree.c,1026
+#define _POSIX_C_SOURCE 12,300
+#define _POSIX_SOURCE 13,327
+static int strtree_xalloc_root;28,620
+#define xalloc(xalloc29,653
+#define xdealloc(xdealloc30,719
+static STNode sentinel 37,854
+static StrTreeNode nil 38,916
+STreeInit 45,988
+STreeSample 62,1238
+mknode 76,1447
+left_rotate 94,1764
+right_rotate 122,2250
+insert_node 150,2753
+STreeInsert 180,3221
+STreeSearch 245,4595
+STreeSearchByUserComp 266,4935
+STreeSearchNode 286,5309
+STreeSearchNext 316,6004
+tree_minimum 338,6401
+tree_maximum 347,6532
+tree_successor 356,6674
+#define DOIT371,6936
+delete_fixup 374,6965
+delete_node 463,8895
+STreeDelete 503,9660
+static int  nest_ptr 520,10016
+static int (*nest_stack[521,10043
+tree_dealloc 524,10102
+STreeDealloc 540,10360
+tree_only_dealloc 551,10565
+STreeDeallocTree 565,10773
+traverse_apply_closure 573,10877
+STreeApply 588,11146
+traverse_apply_node 599,11356
+STreeApplyNode 614,11602
+static int done;624,11806
+traverse_cond 627,11839
+STreeApplyCond 646,12129
+void STreePrint 660,12356
+
+strtree.h,697
+#define Strtree_h15,285
+#define MAX_NEST 17,306
+typedef struct _StrTreeNode _StrTreeNode19,332
+} STNode, *StrTreeNode;StrTreeNode27,647
+#define	RED	31,678
+#define Red	32,693
+#define BLACK	33,708
+#define Black	34,725
+#define Right(Right36,744
+#define Left(Left37,776
+#define Parent(Parent38,807
+#define Color(Color39,840
+#define Key(Key40,872
+#define Closure(Closure41,902
+#define NULL 44,953
+#define True 47,998
+#define False 48,1015
+typedef void (*STreeApplyProc)STreeApplyProc51,1042
+typedef void (*STreeApplyNodeProc)STreeApplyNodeProc52,1082
+typedef int  (*STreeApplyCondProc)STreeApplyCondProc53,1132
+typedef int  (*STreeUserCompProc)STreeUserCompProc54,1176
+
+symtab.c,497
+#define MAXSYMTABS 17,180
+static StrTreeNode symtab[19,206
+int nSymtabs 21,313
+StrTreeNode getTree 28,349
+void printKeys 39,509
+int newSymtab 47,612
+static void releaseKeyAndClosure 62,861
+static void releaseClosure 71,1111
+void releaseSymtab 80,1238
+void releaseSymtabAll 91,1431
+int lookupAndStoreData 104,1671
+void* lookupData 118,1981
+char* lookupKey 131,2197
+char* saveKey 144,2432
+char* saveSymbolAndData 155,2624
+void insertData 166,2838
+char* saveSymbolAndString 175,2992
+
+symtab.h,23
+#define SYMTAB_H11,77
+
+xml.lex.c,3350
+#define EUC2,12
+#define YYLEX_E 10,152
+#define YYTEXT 11,170
+#define YYLENG 12,193
+#define YYINPUT 13,216
+#define YYOUTPUT 14,241
+#define YYUNPUT 15,268
+# define U(U16,293
+# define NLSTATE 17,309
+# define BEGIN 18,347
+# define INITIAL 19,384
+# define YYLERR 20,403
+# define YYSTATE 21,426
+# define YYOPTIM 22,463
+# define YYLMAX 24,499
+# define output(output27,551
+# define lex_output(lex_output29,596
+# define unput(unput72,1299
+# define yymore(yymore73,1379
+# define input(input75,1429
+# define lex_input(lex_input77,1552
+#define ECHO 79,1680
+# define REJECT 80,1721
+int yyleng;81,1775
+size_t yywleng;82,1787
+#define YYISARRAY83,1803
+unsigned char yytext[84,1821
+wchar_t yywtext[85,1862
+int yymorfg;86,1887
+extern wchar_t *yysptr,87,1900
+extern wchar_t *yysptr, yysbuf[87,1900
+int yytchar;88,1934
+FILE *yyin 89,1947
+extern int yylineno;90,1988
+struct yysvf yysvf91,2009
+struct yysvf *yyestate;95,2091
+extern struct yysvf yysvec[96,2115
+extern struct yysvf yysvec[], *yybgin;96,2115
+#define _POSIX_SOURCE 112,2438
+#define malloc 132,2706
+#define free 133,2728
+int LINE_NO;138,2802
+typedef unsigned int * uintptr_t;uintptr_t147,2903
+ int euclen 148,2937
+#define input(input153,3016
+#define lex_input(lex_input157,3163
+static void* lexsrc;161,3299
+static int   memptr;162,3360
+static int   memlen;163,3427
+static int _getc_memory_(169,3632
+static int _getc_memory_len_(177,3830
+static int _getc_file_ 184,3992
+void yyrestart 194,4160
+int get_yy_end_of_buffer 202,4242
+static int charnext;205,4288
+static char charbuf[206,4309
+static char resultbuf[207,4336
+static char msgbuf[208,4365
+void initlineno 217,4441
+void fileParsingMode 227,4529
+void memoryParsingMode 236,4635
+int parseXml 250,4822
+int parseXmlMemory 268,5005
+static int charCollecter 293,5358
+static int charCollecter2 320,5932
+extern int nameTab;344,6503
+# define xml 348,6603
+# define CData 349,6618
+# define CharData 350,6635
+# define singleq 351,6655
+# define doubleq 352,6674
+# define YYNEWLINE 353,6694
+yylex(354,6716
+void begin_chardata 784,12553
+void begin_doubleq 785,12644
+void begin_singleq 786,12733
+void end_chardata 787,12822
+void begin_cdata 788,12858
+int yywrap(790,12896
+void main 799,12948
+int yyvstop[810,13137
+# define YYTYPE 1345,14797
+struct yywork yywork1346,14817
+struct yywork { YYTYPE verify, advance; } yycrank[1346,14817
+struct yysvf yysvec[6125,131477
+struct yywork *yytop 6426,140374
+struct yysvf *yybgin 6427,140412
+int yymatch[6428,140445
+char yyextra[6451,141328
+#define YYNCGIDTBL 6463,141521
+	unsigned long yycgidtbl[6464,141543
+int yylineno 6486,142867
+int yygid;6487,142884
+#define LONG_WCHAR_T 6488,142895
+# define YYU(YYU6489,142918
+# define NLSTATE 6490,142936
+wchar_t yysbuf[6491,142974
+wchar_t *yysptr 6492,142998
+struct yysvf *yylstate 6493,143024
+struct yysvf *yylstate [YYLMAX], **yylsp,6493,143024
+struct yysvf *yylstate [YYLMAX], **yylsp, **yyolsp;6493,143024
+int *yyfnd;6494,143076
+extern struct yysvf *yyestate;6495,143088
+int yyprevious 6496,143119
+int yylook(6498,143193
+wchar_t yywinput(6735,148713
+void yywoutput(6759,149136
+yywunput(6777,149422
+#define yylinearize(yylinearize6791,149634
+yylinearize(6794,149698
+yycgid(6808,150037
+int yyinput(6838,150602
+void yyoutput(6850,150767
+void yyunput(6863,150935
+
+xml.tab.c,4275
+#define _POSIX_C_SOURCE 38,990
+#define _POSIX_SOURCE 39,1016
+#define __EXTENSIONS__ 40,1040
+#define MSDOS 44,1098
+static XStack* xstack_xmlns_uri;88,1861
+static XStack* xstack_element;91,1915
+static char* xmlns 93,1947
+static char  lastXmlnsURI[94,1977
+static int   xmlnsValid 95,2036
+static Element*   current_element;97,2070
+static Element*   parent_element;98,2120
+static Attribute* current_attribute;99,2169
+static unsigned   current_eltype;100,2223
+static char*      namesbuf[102,2277
+#define OHBOY 104,2310
+static StrTreeNode attribTreeRoot 108,2397
+static void _releaseAttribute 114,2467
+static void releaseAttributes 127,2671
+static void addAttribute 138,2845
+static void onEnteringParser 156,3239
+static void onLeavingParser 166,3394
+	YYSTYPEYYSTYPE178,3583
+} YYSTYPE;YYSTYPE184,3655
+# define EMPTY 185,3666
+# define ANY 186,3685
+# define CDATA 187,3702
+# define ID 188,3721
+# define IDREF 189,3737
+# define IDREFS 190,3756
+# define ENTITY 191,3776
+# define ENTITIES 192,3796
+# define NMTOKEN 193,3818
+# define NMTOKENS 194,3839
+# define NOTATION 195,3861
+# define ENCODING 196,3883
+# define STANDALONE 197,3905
+# define SYSTEM 198,3929
+# define PUBLIC 199,3949
+# define NDATA 200,3969
+# define VERSION 201,3988
+# define REF_AMP 202,4009
+# define REF_APOS 203,4030
+# define REF_GT 204,4052
+# define REF_LT 205,4072
+# define REF_QUOT 206,4092
+# define S_PCDATA 207,4114
+# define S_REQUIRED 208,4136
+# define S_IMPLIED 209,4160
+# define S_FIXED 210,4183
+# define LT_EX_ATTLIST 211,4204
+# define LT_EX_DOCTYPE 212,4231
+# define LT_EX_ELEMENT 213,4258
+# define LT_EX_ENTITY 214,4285
+# define LT_EX_NOTATION 215,4311
+# define LT_EX_SB_CDATA 216,4339
+# define INCLUDE 217,4367
+# define _IGNORE 218,4388
+# define LT_Q_XML 219,4409
+# define CHARREF 220,4431
+# define NAME 221,4452
+# define EREF 222,4470
+# define PEREF 223,4488
+# define WHITE 224,4507
+# define LT_EX_SB 225,4526
+# define LT_Q 226,4548
+# define LT_SLASH 227,4566
+# define SB_SB_GT 228,4588
+# define SLASH_GT 229,4610
+# define QYES 230,4632
+# define AYES 231,4650
+# define QNO 232,4668
+# define ANO 233,4685
+# define DQUOTE 234,4702
+# define SQUOTE 235,4722
+# define DQUOTEDSTRING 236,4742
+# define SQUOTEDSTRING 237,4769
+# define PI 238,4796
+# define CDATASECT 239,4812
+# define CDATA_REST 240,4835
+# define VERSIONNUM 241,4859
+# define CHARDATA 242,4883
+# define KANJI 243,4905
+#define yyclearin 277,5407
+#define yyerrok 278,5437
+extern int yychar;279,5467
+extern int yyerrflag;280,5486
+YYSTYPE yylval;281,5508
+YYSTYPE yyval;282,5524
+typedef int yytabelem;yytabelem283,5539
+#define YYMAXDEPTH 285,5581
+int yy_yys[288,5630
+int yy_yys[YYMAXDEPTH], *yys 288,5630
+YYSTYPE yy_yyv[289,5669
+YYSTYPE yy_yyv[YYMAXDEPTH], *yyv 289,5669
+int *yys;291,5753
+YYSTYPE *yyv;292,5763
+static int yymaxdepth 294,5784
+# define YYERRCODE 295,5820
+extern int LINE_NO;300,5866
+static char msgbuf[301,5886
+static void yyerror 305,5919
+static void _error 313,6042
+void warn 321,6159
+void warn2 329,6270
+void warn3 337,6404
+void main 345,6558
+static const yytabelem yyexca[359,6743
+# define YYNPROD 386,7001
+# define YYLAST 387,7022
+static const yytabelem yyact[388,7042
+static const yytabelem yypact[436,10330
+static const yytabelem yypgo[467,12961
+static const yytabelem yyr1[476,13438
+static const yytabelem yyr2[498,14872
+static const yytabelem yychk[520,16306
+static const yytabelem yydef[551,18390
+	yytoktypeyytoktype584,20505
+{ char *t_name; int t_val; } yytoktype;yytoktype586,20523
+#	define YYDEBUG	588,20579
+yytoktype yytoks[593,20647
+char * yyreds[671,21872
+#define YYERROR	886,28989
+#define YYACCEPT	887,29020
+#define YYABORT	888,29047
+#define YYBACKUP(YYBACKUP889,29074
+#define YYRECOVERING(YYRECOVERING901,29323
+#define YYNEW(YYNEW902,29360
+#define YYCOPY(YYCOPY903,29412
+#define YYENLARGE(YYENLARGE905,29509
+#	define YYDEBUG	908,29616
+int yydebug;914,29702
+#define YYFLAG	919,29783
+YYSTYPE *yypv;924,29857
+int *yyps;925,29899
+int yystate;927,29938
+int yytmp;928,29973
+int yynerrs;930,30026
+int yyerrflag;931,30064
+int yychar;932,30107
+#define YYLEX(YYLEX937,30175
+int yycvtok(944,30450
+#define YYLEX(YYLEX976,31075
+int yyparse(983,31245
+#	define _POP_ 1281,37521
+
+xml.tab.h,1591
+	YYSTYPEYYSTYPE4,34
+} YYSTYPE;YYSTYPE10,106
+extern YYSTYPE yylval;11,117
+# define EMPTY 12,140
+# define ANY 13,159
+# define CDATA 14,176
+# define ID 15,195
+# define IDREF 16,211
+# define IDREFS 17,230
+# define ENTITY 18,250
+# define ENTITIES 19,270
+# define NMTOKEN 20,292
+# define NMTOKENS 21,313
+# define NOTATION 22,335
+# define ENCODING 23,357
+# define STANDALONE 24,379
+# define SYSTEM 25,403
+# define PUBLIC 26,423
+# define NDATA 27,443
+# define VERSION 28,462
+# define REF_AMP 29,483
+# define REF_APOS 30,504
+# define REF_GT 31,526
+# define REF_LT 32,546
+# define REF_QUOT 33,566
+# define S_PCDATA 34,588
+# define S_REQUIRED 35,610
+# define S_IMPLIED 36,634
+# define S_FIXED 37,657
+# define LT_EX_ATTLIST 38,678
+# define LT_EX_DOCTYPE 39,705
+# define LT_EX_ELEMENT 40,732
+# define LT_EX_ENTITY 41,759
+# define LT_EX_NOTATION 42,785
+# define LT_EX_SB_CDATA 43,813
+# define INCLUDE 44,841
+# define _IGNORE 45,862
+# define LT_Q_XML 46,883
+# define CHARREF 47,905
+# define NAME 48,926
+# define EREF 49,944
+# define PEREF 50,962
+# define WHITE 51,981
+# define LT_EX_SB 52,1000
+# define LT_Q 53,1022
+# define LT_SLASH 54,1040
+# define SB_SB_GT 55,1062
+# define SLASH_GT 56,1084
+# define QYES 57,1106
+# define AYES 58,1124
+# define QNO 59,1142
+# define ANO 60,1159
+# define DQUOTE 61,1176
+# define SQUOTE 62,1196
+# define DQUOTEDSTRING 63,1216
+# define SQUOTEDSTRING 64,1243
+# define PI 65,1270
+# define CDATASECT 66,1286
+# define CDATA_REST 67,1309
+# define VERSIONNUM 68,1333
+# define CHARDATA 69,1357
+# define KANJI 70,1379
