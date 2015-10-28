@@ -25,9 +25,9 @@ extern char* saveName (char* name);
 
 #ifndef SAXPARSER_C
 
-extern int nameTab;		/* Ê¸»úÎó¥Æ¡¼¥Ö¥ë */
-extern int entityTab;		/* entity¥Æ¡¼¥Ö¥ë */
-extern int attribTab;		/* element-attribute¥Æ¡¼¥Ö¥ë¡£¥¨¥ì¥á¥ó¥ÈÌ¾¤¬¥­¡¼ */
+extern int nameTab;		/* æ–‡å­—åˆ—ãƒ†ãƒ¼ãƒ–ãƒ« */
+extern int entityTab;		/* entityãƒ†ãƒ¼ãƒ–ãƒ« */
+extern int attribTab;		/* element-attributeãƒ†ãƒ¼ãƒ–ãƒ«ã€‚ã‚¨ãƒ¬ãƒ¡ãƒ³ãƒˆåãŒã‚­ãƒ¼ */
 
 
 #endif

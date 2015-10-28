@@ -39,9 +39,9 @@ typedef struct reTreeNode {
   struct reTreeNode *left;
   struct reTreeNode *right;
   int    nullable;		/* FALSE=NO TRUE=YES */
-  _Intset firstpos;		/* firstpos sets ¥İ¥¤¥ó¥¿¡¼¤Ç¤Ï¤Ê¤¤¤Î¤Çfree¤·¤Ê¤¤ */
-  _Intset lastpos;		/* lastpos sets ¥İ¥¤¥ó¥¿¡¼¤Ç¤Ï¤Ê¤¤¤Î¤Çfree¤·¤Ê¤¤ */
-  _Intset followpos;		/* followpos ¥İ¥¤¥ó¥¿¡¼¤Ç¤Ï¤Ê¤¤¤Î¤Çfree¤·¤Ê¤¤ */
+  _Intset firstpos;		/* firstpos sets ãƒã‚¤ãƒ³ã‚¿ãƒ¼ã§ã¯ãªã„ã®ã§freeã—ãªã„ */
+  _Intset lastpos;		/* lastpos sets ãƒã‚¤ãƒ³ã‚¿ãƒ¼ã§ã¯ãªã„ã®ã§freeã—ãªã„ */
+  _Intset followpos;		/* followpos ãƒã‚¤ãƒ³ã‚¿ãƒ¼ã§ã¯ãªã„ã®ã§freeã—ãªã„ */
 } RESyntaxTreeNode, *REN;
 
 

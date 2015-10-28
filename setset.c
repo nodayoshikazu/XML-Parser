@@ -14,7 +14,7 @@
 
 
 /* 
- * ¿·µ¬
+ * æ–°è¦
  */
 
 Setsetp NewSetSet ()
@@ -25,7 +25,7 @@ Setsetp NewSetSet ()
 }
 
 /*
- * ²òÊü
+ * è§£æ”¾
  */
 
 void SSrelease (Setsetp ss)
@@ -38,8 +38,8 @@ void SSrelease (Setsetp ss)
 }
 
 /*
- * ¥»¥Ã¥È¤ò¸¡º÷¤¹¤ë¡£¥¤¥ó¥Ç¥Ã¥¯¥¹¤òÊÖ¤¹¡£
- *  ¸«¤Ä¤«¤é¤Ê¤¤¾ì¹ç¤Ï-1¤òÊÖ¤¹¡£
+ * ã‚»ãƒƒãƒˆã‚’æ¤œç´¢ã™ã‚‹ã€‚ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’è¿”ã™ã€‚
+ *  è¦‹ã¤ã‹ã‚‰ãªã„å ´åˆã¯-1ã‚’è¿”ã™ã€‚
  */
 
 int SSsearch (Setsetp ss, Intsetp is)
@@ -54,7 +54,7 @@ int SSsearch (Setsetp ss, Intsetp is)
 }
 
 /*
- * ¥»¥Ã¥È¤òÄÉ²Ã¤¹¤ë¡£ÄÉ²Ã¤·¤¿¥¤¥ó¥Ç¥Ã¥¯¥¹¤òÊÖ¤¹¡£
+ * ã‚»ãƒƒãƒˆã‚’è¿½åŠ ã™ã‚‹ã€‚è¿½åŠ ã—ãŸã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’è¿”ã™ã€‚
  */
 
 int SSadd (Setsetp ss, Intsetp is)
@@ -69,7 +69,7 @@ int SSadd (Setsetp ss, Intsetp is)
 }
 
 /*
- * ¥¤¥ó¥Ç¥Ã¥¯¥¹¤Î¥»¥Ã¥È¤òÊÖ¤¹¡£
+ * ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã®ã‚»ãƒƒãƒˆã‚’è¿”ã™ã€‚
  */
 
 Intsetp SSget (Setsetp ss, int index) { 

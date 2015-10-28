@@ -51,12 +51,12 @@ void (*sax_startElement)(char* uri, char* localName, char* qName, Attributes att
 void (*sax_endElement)(char* uri, char* localName, char* qName);
 
 /* 
- * namespace¤Î³«»Ï¡£prefix¤ÏnamespaceÌ¾¡¢uri¤Ï¡¢xmlns="uri"¤Îuri
+ * namespaceã®é–‹å§‹ã€‚prefixã¯namespaceåã€uriã¯ã€xmlns="uri"ã®uri
  */
 void (*sax_startPrefixMapping)(char* prefix, char* uri);
 
 /* 
- * namespace¤Î½ªÎ»¡£prefix¤ÏnamespaceÌ¾¡£
+ * namespaceã®çµ‚äº†ã€‚prefixã¯namespaceåã€‚
  */
 void (*sax_endPrefixMapping)(char* prefix);
 

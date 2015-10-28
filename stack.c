@@ -14,7 +14,7 @@
 
 
 /*
- * ¿·µ¬¥¹¥¿¥Ã¥¯³ä¤êÉÕ¤±
+ * æ–°è¦ã‚¹ã‚¿ãƒƒã‚¯å‰²ã‚Šä»˜ã‘
  */
 
 XStack* newXStack (void)
@@ -25,7 +25,7 @@ XStack* newXStack (void)
 }
 
 /*
- * ¥¹¥¿¥Ã¥¯²òÊü
+ * ã‚¹ã‚¿ãƒƒã‚¯è§£æ”¾
  */
 
 void releaseXStack (XStack* xs)
@@ -34,7 +34,7 @@ void releaseXStack (XStack* xs)
 }
 
 /*
- * ¥×¥Ã¥·¥å
+ * ãƒ—ãƒƒã‚·ãƒ¥
  */
 
 void xpush (XStack* xs, void* s)
@@ -46,7 +46,7 @@ void xpush (XStack* xs, void* s)
 }
 
 /* 
- * ¥İ¥Ã¥×
+ * ãƒãƒƒãƒ—
  */
 
 void* xpop (XStack* xs)
@@ -59,7 +59,7 @@ void* xpop (XStack* xs)
 }
 
 /* 
- * ¥İ¥Ã¥×
+ * ãƒãƒƒãƒ—
  */
 
 void* xtop (XStack* xs)

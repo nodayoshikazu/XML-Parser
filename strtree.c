@@ -158,7 +158,7 @@ insert_node (StrTreeNode *tree, StrTreeNode z)
       y = x;
       if (strcmp (z->key, x->key) < 0)
 	x = Left (x);
-      else /* Ʊ�������λ��ⱦ�ˤĤʤ��� */
+      else /* 同じキーの時も右につなげる */
 	x = Right (x);
     }
   Parent (z) = y;
@@ -304,10 +304,10 @@ STreeSearchNode (StrTreeNode root, char* key)
  * Usage:
  *  StrTreeNode node;
  *
- *  node = STreeSearchNext (root, key); �����
- *  node = STreeSearchNext (node, key); ����ܡ������֤ä��Ρ��ɥݥ��󥿤��Ϥ���
- *  node = STreeSearchNext (node, key); �����ܡ������֤ä��Ρ��ɥݥ��󥿤��Ϥ���
- *  node = STreeSearchNext (node, key); �Ͳ��ܡ������֤ä��Ρ��ɥݥ��󥿤��Ϥ���
+ *  node = STreeSearchNext (root, key); 一回目
+ *  node = STreeSearchNext (node, key); 二回目（前に返ったノードポインタを渡す）
+ *  node = STreeSearchNext (node, key); 三回目（前に返ったノードポインタを渡す）
+ *  node = STreeSearchNext (node, key); 四回目（前に返ったノードポインタを渡す）
  *   ...
  */
 
@@ -318,7 +318,7 @@ STreeSearchNext (StrTreeNode node, char* key)
   register int r;
 
   x = node;
-  if (strcmp (key, x->key) == 0) /* ���Ȥϥ����åפ��� */
+  if (strcmp (key, x->key) == 0) /* 自身はスキップする */
     x = Right (x);
 
   while (x != nil && (r = strcmp (key, x->key)) != 0)
@@ -486,7 +486,7 @@ delete_node (StrTreeNode* tree, register StrTreeNode  z)
     }
   if (y != z)
     {
-      Key (z) = Key (y);  /* �⤷�Ρ��ɤ��̤��ͤ���Ĥʤ餽���⥳�ԡ�*/
+      Key (z) = Key (y);  /* もしノードが別の値を持つならそれらもコピー*/
       Closure (z) = Closure (y);
     }
   if (Color (y) == Black)
@@ -495,7 +495,7 @@ delete_node (StrTreeNode* tree, register StrTreeNode  z)
 }
 
 /*
- * �Ρ��ɤ򣱤Ĳ�������. �桼�����������뤿��˥��������㡼���֤�
+ * ノードを１つ解放する. ユーザが解放するためにクロージャーを返す
  */
 
 void*
@@ -513,8 +513,8 @@ STreeDelete (StrTreeNode* tree, char* key)
 }
 
 /*
- * Apply/Dealloc�ؿ��ϥͥ��Ȥ��ƥ����뤹�뤳�Ȥ��Ǥ���褦�ˤ��뤿���
- * �桼���ؿ��Υ����å����ä���
+ * Apply/Dealloc関数はネストしてコールすることができるようにするために
+ * ユーザ関数のスタックを作った。
  */
 static int  nest_ptr = 0;
 static int (*nest_stack[MAX_NEST])(void*);

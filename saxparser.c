@@ -33,16 +33,16 @@
 #endif
 
 
-/* namespace¤òÍ­¸ú¤Ë¤¹¤ë¤«¤É¤¦¤«¡¦
+/* namespaceã‚’æœ‰åŠ¹ã«ã™ã‚‹ã‹ã©ã†ã‹ãƒ»
  */
 int namespaceEnabled = 0;
 
 
 
 /* table IDs */
-int nameTab;			/* Ê¸»úÎó¥Æ¡¼¥Ö¥ë */
-int entityTab;			/* entity¥Æ¡¼¥Ö¥ë */
-int attribTab;			/* element-attribute¥Æ¡¼¥Ö¥ë¡£¥¨¥ì¥á¥ó¥ÈÌ¾¤¬¥­¡¼ */
+int nameTab;			/* æ–‡å­—åˆ—ãƒ†ãƒ¼ãƒ–ãƒ« */
+int entityTab;			/* entityãƒ†ãƒ¼ãƒ–ãƒ« */
+int attribTab;			/* element-attributeãƒ†ãƒ¼ãƒ–ãƒ«ã€‚ã‚¨ãƒ¬ãƒ¡ãƒ³ãƒˆåãŒã‚­ãƒ¼ */
 
 static char* predefEntities[] = {"amp", "apos", "gt", "lt", "quot"};
 static char* predefEntValues[] =  {"&",   "'",    ">",  "<",  "\""};
@@ -50,7 +50,7 @@ static char* predefEntValues[] =  {"&",   "'",    ">",  "<",  "\""};
 
 
 /*
- * ´ðËÜÅª¤Ë¤Ï³«È¯»þ¤Î¥Ð¥°¼è¤êÍÑ
+ * åŸºæœ¬çš„ã«ã¯é–‹ç™ºæ™‚ã®ãƒã‚°å–ã‚Šç”¨
  */
 void _fatal (char* m) 
 {
@@ -59,7 +59,7 @@ void _fatal (char* m)
 }
 
 /*
- * ¤¢¤Ã¤Æ¤Ï¤Ê¤é¤Ê¤¤¤³¤È¤Ç¤Ï¤¢¤ë¡£
+ * ã‚ã£ã¦ã¯ãªã‚‰ãªã„ã“ã¨ã§ã¯ã‚ã‚‹ã€‚
  */
 void _warning (char* m)
 {
@@ -68,7 +68,7 @@ void _warning (char* m)
 
 
 /*
- * ENTITY¥Æ¡¼¥Ö¥ë¤ò½é´ü²½¤¹¤ë
+ * ENTITYãƒ†ãƒ¼ãƒ–ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹
  */
 
 static void initEntityTab (int reftabID)
@@ -80,7 +80,7 @@ static void initEntityTab (int reftabID)
 }
 
 /*
- * Entity¤ÈÂÐ±þ¤¹¤ëÊ¸»úÎó¤òENTITY¥Æ¡¼¥Ö¥ë¥»¡¼¥Ö¤¹¤ë¡£
+ * Entityã¨å¯¾å¿œã™ã‚‹æ–‡å­—åˆ—ã‚’ENTITYãƒ†ãƒ¼ãƒ–ãƒ«ã‚»ãƒ¼ãƒ–ã™ã‚‹ã€‚
  */
 
 void saveEntity (char* entity, char* value)
@@ -89,8 +89,8 @@ void saveEntity (char* entity, char* value)
 }
 
 /*
- * stringÊ¸»úÎó¤ÎÃæ¤Î¥ê¥Õ¥¡¥ì¥ó¥¹(&...;)¤òÂÐ±þ¤¹¤ëÊ¸»úÎó¤ËÃÖ¤­´¹¤¨¤Æ
- *  dest¤ËÊÖ¤¹¡£
+ * stringæ–‡å­—åˆ—ã®ä¸­ã®ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹(&...;)ã‚’å¯¾å¿œã™ã‚‹æ–‡å­—åˆ—ã«ç½®ãæ›ãˆã¦
+ *  destã«è¿”ã™ã€‚
  */
 
 char* resolveReferences (char* string, char* dest)
@@ -129,7 +129,7 @@ char* resolveReferences (char* string, char* dest)
 }
 
 /*
- * name¥Æ¡¼¥Ö¥ë¤ËÌ¾Á°¤òÅÐÏ¿¤¹¤ë¡£
+ * nameãƒ†ãƒ¼ãƒ–ãƒ«ã«åå‰ã‚’ç™»éŒ²ã™ã‚‹ã€‚
  */
 
 char* saveName (char* name) 
@@ -142,7 +142,7 @@ char* saveName (char* name)
 }
 
 /*
- * name¤«¤énamespaceÌ¾¤ò¼è½Ð¤¹
+ * nameã‹ã‚‰namespaceåã‚’å–å‡ºã™
  */
 
 char* getNamespacePrefix (char* name)
@@ -163,7 +163,7 @@ char* getNamespacePrefix (char* name)
 }
 
 /*
- * name¤«¤énamespaceÌ¾¤ò½ü¤¤¤¿Ì¾Á°¤ò¼è½Ð¤¹
+ * nameã‹ã‚‰namespaceåã‚’é™¤ã„ãŸåå‰ã‚’å–å‡ºã™
  */
 
 char* getElementName (char* name)
@@ -247,10 +247,10 @@ EXPORT int parse_xml (char* path)
   imem ();			/* initmem count */
   namespaceEnabled = 1;
 
-  entityTab = newSymtab ();  /* ¥ê¥Õ¥¡¥ì¥ó¥¹¥Æ¡¼¥Ö¥ë */
-  initEntityTab (entityTab); /* ¥ê¥Õ¥¡¥ì¥ó¥¹¥Æ¡¼¥Ö¥ë½é´ü²½ */
-  nameTab = newSymtab ();	/* Ì¾Á°¥Æ¡¼¥Ö¥ë */
-  attribTab = newSymtab ();	/* ¥¨¥ì¥á¥ó¥ÈÂ°À­¥Æ¡¼¥Ö¥ë */
+  entityTab = newSymtab ();  /* ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ†ãƒ¼ãƒ–ãƒ« */
+  initEntityTab (entityTab); /* ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ†ãƒ¼ãƒ–ãƒ«åˆæœŸåŒ– */
+  nameTab = newSymtab ();	/* åå‰ãƒ†ãƒ¼ãƒ–ãƒ« */
+  attribTab = newSymtab ();	/* ã‚¨ãƒ¬ãƒ¡ãƒ³ãƒˆå±žæ€§ãƒ†ãƒ¼ãƒ–ãƒ« */
 
   if (file = fopen (path, "r")) {
     if (dtdpath = lookupDTDPath (file)) {
@@ -265,10 +265,10 @@ EXPORT int parse_xml (char* path)
   pmem ();			/* print memory size remaining un-freeed! */
   printKeys (nameTab);		/* debug */
 #endif
-  /* ¥·¥ó¥Ü¥ë¥Æ¡¼¥Ö¥ë¤ò²òÊü¤¹¤ë.  */
+  /* ã‚·ãƒ³ãƒœãƒ«ãƒ†ãƒ¼ãƒ–ãƒ«ã‚’è§£æ”¾ã™ã‚‹.  */
   releaseSymtab (entityTab, memfree);
   releaseSymtab (attribTab, releaseElementStruct);
-  releaseSymtabAll (nameTab, memfree); /* name¤Ï¤½¤³¤é¤¸¤å¤¦¤Ç»²¾È¤·¤Æ¤ë¤«¤éºÇ¸å¤Ë²òÊü */
+  releaseSymtabAll (nameTab, memfree); /* nameã¯ãã“ã‚‰ã˜ã‚…ã†ã§å‚ç…§ã—ã¦ã‚‹ã‹ã‚‰æœ€å¾Œã«è§£æ”¾ */
 
   pmem ();			/* print memory size remaining un-freeed! */
   return r;

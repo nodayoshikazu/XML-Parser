@@ -2,9 +2,9 @@
  *
  *  dtdparser.c
  *
- *  DTD¥Õ¥¡¥¤¥ë¥Ñ¥¹¤¬¤¢¤ë¤«¤É¤¦¤«¸«¤Æ¡¢¤¢¤ì¤Ğ¥Ñ¡¼¥¹¤¹¤ë¡£
+ *  DTDãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒã‚ã‚‹ã‹ã©ã†ã‹è¦‹ã¦ã€ã‚ã‚Œã°ãƒ‘ãƒ¼ã‚¹ã™ã‚‹ã€‚
  *
- *  08/06/01 FILE URI¤«¤é¥Ñ¥¹¤Ë¥³¥ó¥Ğ¡¼¥È½ĞÍè¤ë¡£
+ *  08/06/01 FILE URIã‹ã‚‰ãƒ‘ã‚¹ã«ã‚³ãƒ³ãƒãƒ¼ãƒˆå‡ºæ¥ã‚‹ã€‚
  *  08/15/01 Win32 port
  *  10/18/01 Bug fix
  */
@@ -33,7 +33,7 @@ static int   lines = 0;
 
 
 /*
- * ¥Õ¥¡¥¤¥ë¤«¤é¡¢°ú¿ô¤ÎÊ¸»úÎó(Ä¹¤µ¤âÅÏ¤¹)¤òÃµ¤¹¡£
+ * ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ã€å¼•æ•°ã®æ–‡å­—åˆ—(é•·ã•ã‚‚æ¸¡ã™)ã‚’æ¢ã™ã€‚
  */
 
 static int lookup_string (FILE* file, char* string, int length)
@@ -65,7 +65,7 @@ static int lookup_string (FILE* file, char* string, int length)
 }
 
 /*
- * FILE URI¤ò¥·¥¹¥Æ¥à¥Ñ¥¹¤ËÊÑ´¹
+ * FILE URIã‚’ã‚·ã‚¹ãƒ†ãƒ ãƒ‘ã‚¹ã«å¤‰æ›
  */
 
 static char* convert_file_uri_to_system_path (char* uri)
@@ -86,14 +86,14 @@ static char* convert_file_uri_to_system_path (char* uri)
       p++;
     }
 #endif
-    memcpy (uri, work, len);	/* ¤â¤É¤¹¤À¤± */
+    memcpy (uri, work, len);	/* ã‚‚ã©ã™ã ã‘ */
     uri[len] = '\0';
   }
   return uri;
 }
 
 /*
- * XML¥Õ¥¡¥¤¥ë¤«¤éDTD¥Ñ¥¹¤ò¸¡º÷
+ * XMLãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰DTDãƒ‘ã‚¹ã‚’æ¤œç´¢
  */
 
 char* lookupDTDPath (FILE* file)
@@ -121,7 +121,7 @@ char* lookupDTDPath (FILE* file)
 }
 
 /*
- * DTD¤ò¥Ñ¡¼¥¹¤¹¤ë
+ * DTDã‚’ãƒ‘ãƒ¼ã‚¹ã™ã‚‹
  *  
  */
 
@@ -131,7 +131,7 @@ int parseDTD (char* dtdpath) {
 
   ENTER ("parseDTD");
   if (f = fopen (dtdpath, "r")) {
-    r = parseXml (f);  /* DTD¤ò¥Ñ¡¼¥¹¤¹¤ë */
+    r = parseXml (f);  /* DTDã‚’ãƒ‘ãƒ¼ã‚¹ã™ã‚‹ */
     fclose (f);
   }
   else

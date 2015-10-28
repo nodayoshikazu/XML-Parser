@@ -3,9 +3,9 @@
  *
  *  xml.y
  *  
- *  DTD�ѡ����Ѥ�ʸˡ��ޤߤޤ���
- *  ����������DTD���Բ�ǽ�ʽ���������ޤ���w3c�ɥ�եȤǤϰʲ��Τ褦��XML�С���������
- *    XML�إå����˴ޤ�ޤ����������ˤ���ʸˡ�Ǥϡ����������Ƥ��ޤ���
+ *  DTDパース用の文法も含みます。
+ *  一点だけ、DTDで不可能な書き方があります。w3cドラフトでは以下のようにXMLバージョン情報が
+ *    XMLヘッダーに含めますが、ここにある文法では、それを許していません。
  *
  * extSubset
  *	: TextDecl extSubsetDecl
@@ -103,24 +103,24 @@ static char*      namesbuf[32];
 #define OHBOY  onLeavingParser();return(1);
 
 
-/* ���ȥ�ӥ塼�ȥꥹ���ѥĥ꡼�롼�� */
+/* アトリビュートリスト用ツリールート */
 static StrTreeNode attribTreeRoot = NULL;
 
 /*
- * attribute�����
+ * attributeを解放
  */
 
 static void _releaseAttribute (StrTreeNode node)
 {
   /*
-   * key��nameTree�ˤĤʤ��äƤ���Τǥե꡼���ʤ���
+   * keyはnameTreeにつながっているのでフリーしない。
    */
   if (Closure (node))
     memfree ((char*)Closure (node));
 }
 
 /*
- * attribute�����
+ * attributeを解放
  */
 
 static void releaseAttributes ()
@@ -132,14 +132,14 @@ static void releaseAttributes ()
 }
 
 /* 
- * attribute���ɲ�
+ * attributeを追加
  */
 static void addAttribute (char* name, char* value)
 {
   if (attribTreeRoot == NULL)
-    STreeInit (&attribTreeRoot); /* ����� */
+    STreeInit (&attribTreeRoot); /* 初期化 */
   /*
-   * value�Ϥޤ����꡼�˳���դ����Ƥ��ʤ�
+   * valueはまだメモリーに割り付けられていない
    */
   if (value && *value) {
     if ((STreeSearchNode (attribTreeRoot, name)) == NULL) {
@@ -150,7 +150,7 @@ static void addAttribute (char* name, char* value)
 }
 
 /*
- *  �ѡ��������
+ *  パーサ初期化
  */
 static void onEnteringParser (void)
 {
@@ -160,7 +160,7 @@ static void onEnteringParser (void)
 }
 
 /* 
- * �ѡ������ݽ�
+ * パーサ後掃除
  */
 static void onLeavingParser (void) 
 {
@@ -354,36 +354,36 @@ element
 	    int   i, error;
 
 	    /*
-	     * ͽ¬���Υ�����Ȥ����ä���ٹ�???�Ǥ����Τ�???
+	     * 予測外のエレメントがあったら警告???でいいのか???
 	     */
 	    if (parent_element = xtop (xstack_element))
 	      if (getNextStateOnSymbol (parent_element, $1) == NOT_ACCEPT) {
 		warn2 ("Encountered illegal element...", $1);
 		/*************************************************
-		 * �Ȥꤢ���������å������Ȥ������⤢�뤫�饳��ƥ����ȥ��顼�Ǥ�
-		 * ���ܡ��ȤϤ��ʤ��Ǥ�����
+		 * とりあえずチェックだけという場合もあるからコンテキストエラーでは
+		 * アボートはしないでおく。
 		 *************************************************/
 		/*OHBOY; abort */
 	      }
-	    /* ���Υ������̾�Υǡ���°�������� */
+	    /* このエレメント名のデータ属性を得る */
 	    current_element = (Element*) lookupData (attribTab, $1);
 	    initStateWorkOfElement (current_element);
 	    xpush (xstack_element, current_element);
 
-            /* #REQUIRED�ʤΤ�¸�ߤ��ʤ����ȥ�ӥ塼�Ȥ����뤫Ĵ�٤�
-	     *   ����зٹ�ɽ�� ??? �Ǥ����Τ�???
+            /* #REQUIREDなのに存在しないアトリビュートがあるか調べる
+	     *   あれば警告表示 ??? でいいのか???
 	     */
             error = checkAttributesForRequired (current_element, attribTreeRoot, namesbuf);
 	    if (0 < error) {
 	      for (i = 0; i < error; i++)
 		warn2 ("Missing attribute...", namesbuf[i]);
 	      /*************************************************
-	       * �Ȥꤢ���������å������Ȥ������⤢�뤫�饳��ƥ����ȥ��顼�Ǥ�
-	       * ���ܡ��ȤϤ��ʤ��Ǥ�����
+	       * とりあえずチェックだけという場合もあるからコンテキストエラーでは
+	       * アボートはしないでおく。
 	       *************************************************/
 	      /*OHBOY; abort */
 	    }
-            /* enumʸ����������������å� */
+            /* enum文字列の妥当性チェック */
             error = checkAttributesForFixed (current_element, attribTreeRoot, namesbuf);
             if (0 < error) {
 	      for (i = 0; i < error; i++)
@@ -403,7 +403,7 @@ element
 	    char* nsuri = NULL;
 	    char* elem = NULL;
 
-	    /* �ƥ������°����ݥå� */
+	    /* 親エレメント属性をポップ */
 	    (void) xpop (xstack_element);
 
 	    if (namespaceEnabled) {
@@ -419,15 +419,15 @@ element
 	      if (getNextStateOnSymbol (parent_element, $1) == NOT_ACCEPT)
 		warn2 ("Encountered illegal element...", $1);
 
-	    /* ���Υ������̾�Υǡ���°�������� */
+	    /* このエレメント名のデータ属性を得る */
 	    if (current_element = (Element*) lookupData (attribTab, $1)) {
 	      initStateWorkOfElement (current_element); /* anyways */
 
 	      if (TypeOfElement (current_element) != EL_EMPTY) {
 		warn2 ($1, " cannot be an empty element");
 		/*************************************************
-		 * �Ȥꤢ���������å������Ȥ������⤢�뤫�饳��ƥ����ȥ��顼�Ǥ�
-		 * ���ܡ��ȤϤ��ʤ��Ǥ�����
+		 * とりあえずチェックだけという場合もあるからコンテキストエラーでは
+		 * アボートはしないでおく。
 		 *************************************************/
 		/*OHBOY;*//* abort */
 	       }
@@ -466,8 +466,8 @@ content
 	: CHARDATA
 	  {
 	    /*
-	     * ����ǥ�Ȥζ���䥿�֤⤳�������äƤ��Ƥ��ޤ��Τǡ����Υ����å��ϻȤ��ʤ���
-	     * �ޡ����Υ����å��Ϥ���ʤ��褦����
+	     * インデントの空白やタブもここに入ってきてしまうので、このチェックは使えない。
+	     * ま、このチェックはいらないようだ。
 	     * if (current_element)
 	     * if (TypeOfElement (current_element) != EL_PCDATA)
 	     * warn2 (NameOfElement (current_element), " cannot be a #PCDATA ");
@@ -510,7 +510,7 @@ STag
 	      else
 		xpush (xstack_xmlns_uri, NULL);
 	    }
-	    if (namespaceEnabled) {		/* namespace��ͭ�� */
+	    if (namespaceEnabled) {		/* namespaceが有効 */
 	      if (xmlnsValid)
 		(*sax_startPrefixMapping)(getNamespacePrefix ($2), lastXmlnsURI);
 	      xmlnsValid = FALSE;
@@ -557,8 +557,8 @@ Attributes
 	;
 
 /*
- * ����ʸ�������ˤϥ�ե����(Reference|PEReference)���դ��ޤ�Ƥ褤��
- *  �������äƥץ������Ū�ˡ���ե���󥹤��Ѵ�����ɬ�פ����롣
+ * この文字列の中にはリファレンス(Reference|PEReference)がふくまれてよい。
+ *  したがってプログラム的に、リファレンスを変換する必要がある。
  */
 Attribute
 	: NAME '=' QuotedString 
@@ -595,7 +595,7 @@ PublicLiteral
 	;
 
 /* 
- * DTD���ǲ��Ϥ�ʸˡ
+ * DTD要素解析の文法
  */
 markupdecls
 	: markupdecls markupdecl
@@ -880,7 +880,7 @@ EntityDecl
 	| LT_EX_ENTITY error			{ _error("illegal ENTITY spec. Missing entity name."); OHBOY; }
 	| LT_EX_ENTITY '%' NAME PEDef '>' 
 	  {
-	    /*PEDecl �ۤ�Ȥ���EntityDef->PEDef*/
+	    /*PEDecl ほんとうはEntityDef->PEDef*/
 	    saveEntity ($3, $4);
 	  }
 	| LT_EX_ENTITY '%' NAME PEDef error	{ _error("illegal ENTITY spec. Missing '>'."); OHBOY; }
@@ -900,8 +900,8 @@ PEDef
 	;
 
 /*
- * ����ʸ�������ˤϥ�ե����(Reference|PEReference)���դ��ޤ�Ƥ褤��
- *  �������äƥץ������Ū�ˡ���ե���󥹤��Ѵ�����ɬ�פ����롣
+ * この文字列の中にはリファレンス(Reference|PEReference)がふくまれてよい。
+ *  したがってプログラム的に、リファレンスを変換する必要がある。
  */
 EntityValue
 	: QuotedString		{ $$ = $1; }
@@ -966,8 +966,8 @@ NotationDecl
  *	;
  */
 /***********************************************************
- * �ʲ���DTD�ȤΥ���ѥ��ӥ�ƥ��Τ����ʸˡ��XML�Ǥϵ�����Ƥ��ʤ���
- * 2�ĤΥѡ������ĤΤ����ݤʤΤȡ��ݼ餬�����ؤ�ʤΤǤ���������
+ * 以下はDTDとのコンパチビリティのための文法。XMLでは許されていない。
+ * 2つのパーサをもつのが面倒なのと、保守がたいへんなのでこうした。
  ***********************************************************/
 somemarkupdecls
 	: somemarkupdecls somemarkupdecl

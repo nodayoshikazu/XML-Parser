@@ -13,7 +13,7 @@
 #include "debug.h"
 
 
-/* ¥·¥ó¥Ü¥ë¥Æ¡¼¥Ö¥ë(¤Ä¤ê¡¼)¿ô */
+/* ã‚·ãƒ³ãƒœãƒ«ãƒ†ãƒ¼ãƒ–ãƒ«(ã¤ã‚Šãƒ¼)æ•° */
 #define MAXSYMTABS  10
 
 static StrTreeNode symtab[MAXSYMTABS] 

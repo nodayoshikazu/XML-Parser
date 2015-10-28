@@ -17,30 +17,30 @@
 #define FILE_URI_HEADERL  7
 
 
-/* �����element�κ���ͥ��ȿ��Ǥ褤 */
+/* これはelementの最大ネスト数でよい */
 #define STACKSIZE      128
 
 
-/* URI��Ĺ�� */
+/* URIの長さ */
 #define URI_LENGTH     256
 
-/* setset�ǵ��������祻�åȿ� */
+/* setsetで許される最大セット数 */
 #define MAXSETS        1024
 
 /* intset MAX value */
 #define MAX_BITS       256
 
-/* DFA�ط� */
+/* DFA関係 */
 #define MAX_LEAVES     1024
 #define MAX_GOTOS      1024
 
-/* XML name�ǵ������κ����Ĺ�� */
+/* XML nameで許されるの最大の長さ */
 #define MAXNAMELEN     256
 
-/* XML entity���֤����������ե���󥹤κ����Ĺ�� */
+/* XML entityで置き換えられるリファレンスの最大の長さ */
 #define MAX_REFERENCE_LENGTH  256
 
-/* ������Ȥνи������å��������(getNextStateOnSymbol) */
+/* エレメントの出現チェックの戻り値(getNextStateOnSymbol) */
 #define ACCEPT         1
 #define NOT_ACCEPT     0
 

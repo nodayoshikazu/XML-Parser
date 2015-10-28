@@ -39,8 +39,8 @@ static RESyntaxTreeNode _emptyNode = {
   TRUE				/* nullable */
 };
 
-REN emptyNode = &_emptyNode;	/* ¥¢¥¯¥»¥×¥È¥·¥ó¥Ü¥ë */
-REN lastNode = &_lastNode;	/* ¶õ¥·¥ó¥Ü¥ë */
+REN emptyNode = &_emptyNode;	/* ã‚¢ã‚¯ã‚»ãƒ—ãƒˆã‚·ãƒ³ãƒœãƒ« */
+REN lastNode = &_lastNode;	/* ç©ºã‚·ãƒ³ãƒœãƒ« */
 
 #ifdef CHKMEM
 static int memcount = 0;
@@ -56,7 +56,7 @@ static int  nGotos;
 
 
 /*
- * ¿·¥Î¡¼¥É¥á¥â¥ê¡¼³ä¤êÉÕ¤±
+ * æ–°ãƒãƒ¼ãƒ‰ãƒ¡ãƒ¢ãƒªãƒ¼å‰²ã‚Šä»˜ã‘
  */
 
 static REN newNode ()
@@ -68,7 +68,7 @@ static REN newNode ()
 }
 
 /*
- * ½é´ü²½(DFA¤òºî¤ëºİ¤ËËè²ó¸Æ¤Ó½Ğ¤¹É¬Í×¤¢¤ë)
+ * åˆæœŸåŒ–(DFAã‚’ä½œã‚‹éš›ã«æ¯å›å‘¼ã³å‡ºã™å¿…è¦ã‚ã‚‹)
  */
 
 void initDfa ()
@@ -80,7 +80,7 @@ void initDfa ()
 }
 
 /*
- * ¥·¥ó¥¿¥Ã¥¯¥¹¥Ä¥ê¡¼¤ò²òÊü
+ * ã‚·ãƒ³ã‚¿ãƒƒã‚¯ã‚¹ãƒ„ãƒªãƒ¼ã‚’è§£æ”¾
  */
 
 REN releaseSyntaxTree (REN node)
@@ -99,7 +99,7 @@ REN releaseSyntaxTree (REN node)
 }
 
 /*
- * ¥·¥ó¥¿¥Ã¥¯¥¹¥Ä¥ê¡¼¤Î¥ê¡¼¥Õ¥Î¡¼¥É¤òºî¤ë
+ * ã‚·ãƒ³ã‚¿ãƒƒã‚¯ã‚¹ãƒ„ãƒªãƒ¼ã®ãƒªãƒ¼ãƒ•ãƒãƒ¼ãƒ‰ã‚’ä½œã‚‹
  */
 
 REN makeLeaf (char* symbol) 
@@ -120,7 +120,7 @@ REN makeLeaf (char* symbol)
 }
 
 /*
- * ¥·¥ó¥¿¥Ã¥¯¥¹¥Ä¥ê¡¼¤Î¥Î¡¼¥É¤òºî¤ë
+ * ã‚·ãƒ³ã‚¿ãƒƒã‚¯ã‚¹ãƒ„ãƒªãƒ¼ã®ãƒãƒ¼ãƒ‰ã‚’ä½œã‚‹
  */
 
 REN makeNode (int op, REN left, REN right)
@@ -138,7 +138,7 @@ REN makeNode (int op, REN left, REN right)
 }
 
 /*
- * ¥·¥ó¥¿¥Ã¥¯¥¹¥Ä¥ê¡¼¤Î¥Î¡¼¥É¤òºî¤ë
+ * ã‚·ãƒ³ã‚¿ãƒƒã‚¯ã‚¹ãƒ„ãƒªãƒ¼ã®ãƒãƒ¼ãƒ‰ã‚’ä½œã‚‹
  */
 
 static REN copyNode (REN node)
@@ -155,7 +155,7 @@ static REN copyNode (REN node)
 }
 
 /*
- * Leaf¤Ç¤Ê¤¤¥Î¡¼¥É¤Î¥³¥Ô¡¼¤òºî¤ë
+ * Leafã§ãªã„ãƒãƒ¼ãƒ‰ã®ã‚³ãƒ”ãƒ¼ã‚’ä½œã‚‹
  */
 
 REN makeCopyNode (int op, REN left, REN right)
@@ -173,7 +173,7 @@ REN makeCopyNode (int op, REN left, REN right)
 }
 
 /*
- * ¥¢¥¯¥»¥×¥È¥¹¥Æ¡¼¥È¤òÄÉ²Ã¤·¤ÆÀµµ¬É½¸½¤òaugument¤¹¤ë¡£
+ * ã‚¢ã‚¯ã‚»ãƒ—ãƒˆã‚¹ãƒ†ãƒ¼ãƒˆã‚’è¿½åŠ ã—ã¦æ­£è¦è¡¨ç¾ã‚’augumentã™ã‚‹ã€‚
  */
 
 static REN addLastSymbol (REN node)
@@ -270,7 +270,7 @@ static void lastpos (REN node)
 }
 
 /* 
- * ¥Ä¥ê¡¼¤ò½ä²ó¤·¤Æfirstpos(node)¤È lastpos(node)¤òÀßÄê¤¹¤ë
+ * ãƒ„ãƒªãƒ¼ã‚’å·¡å›ã—ã¦firstpos(node)ã¨ lastpos(node)ã‚’è¨­å®šã™ã‚‹
  */
 
 static void setFirstposAndLastpos (REN node)
@@ -293,7 +293,7 @@ static void setFirstposAndLastpos (REN node)
 }
 
 /*
- * ¥Ä¥ê¡¼¤ò½ä²ó¤·¤Æfollowpos(leaf-node)¤òÀßÄê
+ * ãƒ„ãƒªãƒ¼ã‚’å·¡å›ã—ã¦followpos(leaf-node)ã‚’è¨­å®š
  */
 
 static void setNullable (REN node)
@@ -306,7 +306,7 @@ static void setNullable (REN node)
 }
 
 /*
- * ¥¹¥Æ¡¼¥ÈID¤«¤é¥·¥ó¥Ü¥ë¤òÆÀ¤ë
+ * ã‚¹ãƒ†ãƒ¼ãƒˆIDã‹ã‚‰ã‚·ãƒ³ãƒœãƒ«ã‚’å¾—ã‚‹
  */
 
 static REN searchNodeForState (REN node, int state)
@@ -357,7 +357,7 @@ static void findFollowpos (REN node, REN root)
 }
 
 /*
- * ¥Ä¥ê¡¼¤ò½ä²ó¤·¤Æfollowpos(leaf-node)¤òÀßÄê
+ * ãƒ„ãƒªãƒ¼ã‚’å·¡å›ã—ã¦followpos(leaf-node)ã‚’è¨­å®š
  */
 
 static void setFollowpos (REN node, REN root)
@@ -371,7 +371,7 @@ static void setFollowpos (REN node, REN root)
 
 
 /*
- * Dfa¥Ç¡¼¥¿¤òºîÀ®¤¹¤ë
+ * Dfaãƒ‡ãƒ¼ã‚¿ã‚’ä½œæˆã™ã‚‹
  */
 
 static Dfa* newDfaStruct (int nSymbols, int nStates, int nGoto, Goto* gotos)
@@ -393,7 +393,7 @@ static Dfa* newDfaStruct (int nSymbols, int nStates, int nGoto, Goto* gotos)
 }
 
 /*
- * ½ÅÊ£¤ò¤µ¤±¤ÆÄÉ²Ã
+ * é‡è¤‡ã‚’ã•ã‘ã¦è¿½åŠ 
  */
 
 static addGoto (int fromState, char* symbol, int toState, int accept)
@@ -401,7 +401,7 @@ static addGoto (int fromState, char* symbol, int toState, int accept)
   int i, found;
 
   /*
-   * ¼Âºİ¤Ë¤Ï¶õÊ¸»ú(epsilon)¤È¤«¡¢#¤ÏÆşÎÏ¤µ¤ì¤Ê¤¤¤Î¤Ç¡¢goto¥Æ¡¼¥Ö¥ë¤Ë¤ÏÆş¤ì¤Ê¤¤¡£
+   * å®Ÿéš›ã«ã¯ç©ºæ–‡å­—(epsilon)ã¨ã‹ã€#ã¯å…¥åŠ›ã•ã‚Œãªã„ã®ã§ã€gotoãƒ†ãƒ¼ãƒ–ãƒ«ã«ã¯å…¥ã‚Œãªã„ã€‚
    */
   if (*symbol != '#' && *symbol != '@') {
     found = FALSE;
@@ -428,13 +428,13 @@ static addGoto (int fromState, char* symbol, int toState, int accept)
  *  create_dfa (root);
  *    ref: Dragon Book pp 141.
  *
- *  DFA¤Î»Ñ:
- *  ¥·¥ó¥Ü¥ëÇÛÎó [ptr][ptr2]...[ptrn] 
- *  ¤³¤ì¤ÏSyntax Tree¤ÎLeaf¤À¤±¤ò½¸¤á¤ì¤Ğ½ĞÍè¤ë¡£
- *  ÇÛÎó¾å¤Î¥·¥ó¥Ü¥ë¤Î¥¤¥ó¥Ç¥Ã¥¯¥¹¤¬stateÈÖ¹æ¤Ë¤Ê¤ë¡£
+ *  DFAã®å§¿:
+ *  ã‚·ãƒ³ãƒœãƒ«é…åˆ— [ptr][ptr2]...[ptrn] 
+ *  ã“ã‚Œã¯Syntax Treeã®Leafã ã‘ã‚’é›†ã‚ã‚Œã°å‡ºæ¥ã‚‹ã€‚
+ *  é…åˆ—ä¸Šã®ã‚·ãƒ³ãƒœãƒ«ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ãŒstateç•ªå·ã«ãªã‚‹ã€‚
  *
- *  DFA¤Ï£²¼¡¸µÇÛÎó¡£½Ä¤¬¥«¥ì¥ó¥È¥¹¥Æ¡¼¥È¡£²£¤¬¥·¥ó¥Ü¥ë¥¤¥ó¥Ç¥Ã¥¯¥¹¡£
- *  Ãæ¿È¤¬goto¥¹¥Æ¡¼¥È¡£
+ *  DFAã¯ï¼’æ¬¡å…ƒé…åˆ—ã€‚ç¸¦ãŒã‚«ãƒ¬ãƒ³ãƒˆã‚¹ãƒ†ãƒ¼ãƒˆã€‚æ¨ªãŒã‚·ãƒ³ãƒœãƒ«ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã€‚
+ *  ä¸­èº«ãŒgotoã‚¹ãƒ†ãƒ¼ãƒˆã€‚
  *
  *     | 0 | 1 | 2 | 3 | 4 | 5 | <-- symbol index
  *  ---+---------------------------
@@ -450,14 +450,14 @@ static addGoto (int fromState, char* symbol, int toState, int accept)
  *  ---+---------------------------
  *  5  |
  *
- *  ¤³¤ì¤ò1¼¡¸µÇÛÎó¤ÇºîÀ®¡£ÇÛÎó¤Î¥İ¥¤¥ó¥¿¡¼¤È¡¢¥¤¥ó¥Ç¥Ã¥¯¥¹¿ô¡¢¥¹¥Æ¡¼¥È¿ô¤ò»ı¤Æ¤Ğ¤¤¤¤¡£
+ *  ã“ã‚Œã‚’1æ¬¡å…ƒé…åˆ—ã§ä½œæˆã€‚é…åˆ—ã®ãƒã‚¤ãƒ³ã‚¿ãƒ¼ã¨ã€ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹æ•°ã€ã‚¹ãƒ†ãƒ¼ãƒˆæ•°ã‚’æŒã¦ã°ã„ã„ã€‚
  *
- *  »ı¤Á¤â¤Î
- *  1) ¥·¥ó¥Ü¥ëÇÛÎó
- *  2) ¥·¥ó¥Ü¥ëÇÛÎó¤Î¥·¥ó¥Ü¥ë¿ô=¥¤¥ó¥Ç¥Ã¥¯¥¹¿ô
- *  3) ¥¹¥Æ¡¼¥È¿ô¡£(¥¢¥¯¥»¥×¥È¥¹¥Æ¡¼¥È¤Î¥¤¥ó¥Ç¥Ã¥¯¥¹¤À¤±¤ï¤«¤ë¤è¤¦¤Ë)
- *     ¡áDtrans¤Î¥»¥Ã¥È¿ô
- *  4) gotoÇÛÎó
+ *  æŒã¡ã‚‚ã®
+ *  1) ã‚·ãƒ³ãƒœãƒ«é…åˆ—
+ *  2) ã‚·ãƒ³ãƒœãƒ«é…åˆ—ã®ã‚·ãƒ³ãƒœãƒ«æ•°=ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹æ•°
+ *  3) ã‚¹ãƒ†ãƒ¼ãƒˆæ•°ã€‚(ã‚¢ã‚¯ã‚»ãƒ—ãƒˆã‚¹ãƒ†ãƒ¼ãƒˆã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã ã‘ã‚ã‹ã‚‹ã‚ˆã†ã«)
+ *     ï¼Dtransã®ã‚»ãƒƒãƒˆæ•°
+ *  4) gotoé…åˆ—
  */
 
 static Dfa* create_dfa (REN root)
@@ -467,7 +467,7 @@ static Dfa* create_dfa (REN root)
   Intsetp tmpIS;
   Dfa*    dfa = NULL;
 
-  /* ½é´ü¥¹¥Æ¡¼¥È */
+  /* åˆæœŸã‚¹ãƒ†ãƒ¼ãƒˆ */
   nGotos = 0;
   Dtrans = NewSetSet ();
   SSadd (Dtrans, ISclone (&root->firstpos, NewIntset (numberOfLeaves)));
@@ -476,7 +476,7 @@ static Dfa* create_dfa (REN root)
    */
   tmpIS = NewIntset (numberOfLeaves);
   /*
-   * Dtrans¤Ï¥ë¡¼¥×¤ÎÃæ¤ÇÁı¤¨¤ë
+   * Dtransã¯ãƒ«ãƒ¼ãƒ—ã®ä¸­ã§å¢—ãˆã‚‹
    */
   for (i = 0; i < SSgetNumSets (Dtrans); i++) {
     Intsetp isetp = SSget (Dtrans, i);
@@ -488,7 +488,7 @@ static Dfa* create_dfa (REN root)
        * Do for all symbols in Dtrans[i]
        */
       while ((p = ISnext (isetp)) > -1) {
-	/* strcmp()¤ÎÉ¬Í×¤Ê¤· */
+	/* strcmp()ã®å¿…è¦ãªã— */
 	if (leaves[j]->symbol == leaves[p]->symbol) {
 	  /*
 	   * If symbol-j = symbol-p, add all positions in followpos(p)
@@ -509,9 +509,9 @@ static Dfa* create_dfa (REN root)
       }
 #endif
       /*
-       * Dtrans¤ÎÃæ¤ËtmpIS¤ÈÆ±¤¸¥»¥Ã¥È¤¬¤¢¤ë¤«¤É¤¦¤«Ãµ¤¹
-       *  ¤Ê¤±¤ì¤Ğ¡¢Dtrans¤ËÄÉ²Ã¤¹¤ë¡£
-       *  i¤¬³«»Ï¥¹¥Æ¡¼¥È¤Ç¡¢k¤Ï¹Ô¤­Àè¥¹¥Æ¡¼¥È
+       * Dtransã®ä¸­ã«tmpISã¨åŒã˜ã‚»ãƒƒãƒˆãŒã‚ã‚‹ã‹ã©ã†ã‹æ¢ã™
+       *  ãªã‘ã‚Œã°ã€Dtransã«è¿½åŠ ã™ã‚‹ã€‚
+       *  iãŒé–‹å§‹ã‚¹ãƒ†ãƒ¼ãƒˆã§ã€kã¯è¡Œãå…ˆã‚¹ãƒ†ãƒ¼ãƒˆ
        */
       if ((k = SSsearch (Dtrans, tmpIS)) < 0) {
 	/* same set is not found 
@@ -530,7 +530,7 @@ static Dfa* create_dfa (REN root)
     }
   }
   /*
-   * DFA¤òºîÀ®
+   * DFAã‚’ä½œæˆ
    */
   dfa = newDfaStruct (n_leaves, SSgetNumSets (Dtrans), nGotos, gotobuf);
   ISrelease (tmpIS);		/* free tmpIS */
